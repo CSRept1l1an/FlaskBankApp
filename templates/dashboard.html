@@ -4,24 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <script>
+        function showForm(formId) {
+            const depositForm = document.getElementById('depositForm');
+            const withdrawForm = document.getElementById('withdrawForm');
+
+            if (formId === 'depositForm') {
+                depositForm.style.display = 'block';
+                withdrawForm.style.display = 'none';
+            } else if (formId === 'withdrawForm') {
+                withdrawForm.style.display = 'block';
+                depositForm.style.display = 'none';
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Welcome, {{ username }}</h1>
     <p>Your current balance: ${{ balance }}</p>
 
     <h2>Deposit Money</h2>
-    <form action="/deposit" method="post">
+    <button onclick="showForm('depositForm')">Deposit</button>
+    <form id="depositForm" action="/deposit" method="post" style="display: none;">
         <input type="hidden" name="username" value="{{ username }}">
-        <label for="deposit">Amount:</label>
-        <input type="number" id="deposit" name="amount" min="0" step="0.01" required>
+        <label for="depositAmount">Amount:</label>
+        <input type="number" id="depositAmount" name="amount" min="0" step="0.01" required>
         <input type="submit" value="Deposit">
     </form>
 
     <h2>Withdraw Money</h2>
-    <form action="/withdraw" method="post">
+    <button onclick="showForm('withdrawForm')">Withdraw</button>
+    <form id="withdrawForm" action="/withdraw" method="post" style="display: none;">
         <input type="hidden" name="username" value="{{ username }}">
-        <label for="withdraw">Amount:</label>
-        <input type="number" id="withdraw" name="amount" min="0" step="0.01" required>
+        <label for="withdrawAmount">Amount:</label>
+        <input type="number" id="withdrawAmount" name="amount" min="0" step="0.01" required>
         <input type="submit" value="Withdraw">
     </form>
 
