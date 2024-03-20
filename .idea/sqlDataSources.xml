@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="d50c902a-321f-4dd6-9f50-eed14475b411" name="bank.sqlite Mapping">
+      <data-sources db="dcaee5bc-0af6-4858-9127-344fa1062d7c" ddl="e360e4e5-661f-481e-b9b3-5ddc0337fd0f" />
+      <scope>
+        <node kind="database" negative="1" />
+      </scope>
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="e360e4e5-661f-481e-b9b3-5ddc0337fd0f" />
+          <option name="name" value="bank.sqlite (DDL)" />
+          <option name="dbmsName" value="SQLITE" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/schema.sql" />
+            </array>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
