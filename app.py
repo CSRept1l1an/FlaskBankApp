@@ -1,5 +1,11 @@
 import sqlite3
-from flask import Flask, render_template, request, redirect, url_for
+
+from flask import (Flask,
+                   render_template,
+                   request,
+                   redirect,
+                   url_for)
+
 from functions import deposit, withdraw
 
 app = Flask(__name__)
@@ -41,6 +47,19 @@ def login():
     return render_template('login.html')
 
 
+# Register page function
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        balance = request.form['balance']
+        # cardnumber = request.form['cardNumber']
+
+        conn, cursor = get_dbcon()
+        cursor.execute('INSERT INTO users (name, password, balance) VALUES (?,?,?)', (username, password, balance))
+
+
 @app.route('/deposit', methods=['POST'])
 def deposit_route():
     conn = sqlite3.connect('bank.sqlite')
@@ -63,7 +82,6 @@ def withdraw_route():
 def dashboard(username):
     conn, cursor = get_dbcon()
 
-    # Fetch the user's balance from the database
     cursor.execute('SELECT balance FROM users WHERE name=?', (username,))
     result = cursor.fetchone()
 
