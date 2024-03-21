@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DdlMappings">
     <mapping uuid="d50c902a-321f-4dd6-9f50-eed14475b411" name="bank.sqlite Mapping">
-      <data-sources db="dcaee5bc-0af6-4858-9127-344fa1062d7c" ddl="e360e4e5-661f-481e-b9b3-5ddc0337fd0f" />
+      <data-sources db="dcaee5bc-0af6-4858-9127-344fa1062d7c" ddl="a15fd34a-190b-4a1e-8397-b3f859053a90" />
       <scope>
         <node kind="database" negative="1" />
       </scope>
@@ -12,14 +12,13 @@
     <option name="dataSources">
       <list>
         <State>
-          <option name="id" value="e360e4e5-661f-481e-b9b3-5ddc0337fd0f" />
+          <option name="id" value="a15fd34a-190b-4a1e-8397-b3f859053a90" />
           <option name="name" value="bank.sqlite (DDL)" />
           <option name="dbmsName" value="SQLITE" />
           <option name="urls">
-            <array>
-              <option value="file://$PROJECT_DIR$/schema.sql" />
-            </array>
+            <array />
           </option>
+          <option name="outLayout" value="File per object by schema.groovy" />
         </State>
       </list>
     </option>

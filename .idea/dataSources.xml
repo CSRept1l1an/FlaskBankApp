@@ -4,6 +4,7 @@
     <data-source source="LOCAL" name="bank.sqlite" uuid="dcaee5bc-0af6-4858-9127-344fa1062d7c">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:identifier.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
