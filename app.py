@@ -54,10 +54,14 @@ def register():
         username = request.form['username']
         password = request.form['password']
         balance = request.form['balance']
-        # cardnumber = request.form['cardNumber']
+        # cardNumber = request.form['cardNumber']
 
         conn, cursor = get_dbcon()
         cursor.execute('INSERT INTO users (name, password, balance) VALUES (?,?,?)', (username, password, balance))
+        conn.commit()
+        close_dbcon(conn)
+
+    return render_template('register.html')
 
 
 @app.route('/deposit', methods=['POST'])
