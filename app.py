@@ -27,6 +27,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/logout')
+def logout():
+    return redirect(url_for('index'))
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':

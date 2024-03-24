@@ -39,6 +39,3 @@ def withdraw(conn, cursor):
 
     return redirect(url_for('index'))
 
-
-def logout():
-    return redirect(url_for('index'))
