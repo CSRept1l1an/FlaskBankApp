@@ -3,12 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the Bank Web App</title>
-</head>
+    <title>Welcome to BankScape</title>
+    <link rel="stylesheet" href="../static/homestyles.css">  </head>
 <body>
-    <h1>Welcome to the Bank Web App</h1>
-    <p>This is a simple bank web application built with Python Flask by Yusifov Telman.</p>
-    <p>Please <a href="/login">log in</a> to access your account.</p>
-    <p>Or you don't have an account you can <a href="/register">register</a>to our Bank</p>
+    <header class="hero">
+        <div class="overlay"></div> <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to BankScape</h1>
+                <p>Empowering Your Financial Journey</p>
+                <a href="/register" class="btn-register">Open an Account</a>
+                <a href="/login" class="btn-login">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="features-grid">  <div class="feature-item">
+                    <i class="fas fa-laptop"></i>  <h3>Online Banking</h3>
+                    <p>Access your accounts, transfer funds, and pay bills anytime, anywhere.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>  <h3>Mobile App</h3>
+                    <p>Bank on the go with our user-friendly mobile app, available on iOS and Android.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>  <h3>Security</h3>
+                    <p>Rest assured with our state-of-the-art security measures protecting your assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>BankScape is a leading financial institution committed to providing innovative banking solutions to individuals and businesses. With a focus on customer satisfaction and technological advancement, we strive to simplify banking processes and enhance financial well-being.</p>
+            <p><strong>We believe in building trust and empowering our customers to achieve their financial goals.</strong></p></div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 BankScape. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

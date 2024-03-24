@@ -4,24 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
-    <h2>User Registration</h2>
-    <form action="/register" method="POST">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br>
+    <div class="container">
+        <h2>User Registration</h2>
+        <form action="/register" method="POST" class="registration-form">
+            <div class="form-group">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required>
+            </div>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br>
+            <div class="form-group">
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required>
+            </div>
 
-        <label for="balance">Balance:</label><br>
-        <input type="number" id="balance" name="balance" required><br>
+            <div class="form-group">
+                <label for="balance">Balance:</label><br>
+                <input type="number" id="balance" name="balance" required>
+            </div>
 
-        <!-- You can uncomment the following lines if you want to include card number field -->
-        <!-- <label for="cardNumber">Card Number:</label><br> -->
-        <!-- <input type="text" id="cardNumber" name="cardNumber"><br> -->
+            <!-- You can uncomment the following lines if you want to include card number field -->
+            <!-- <div class="form-group">
+                <label for="cardNumber">Card Number:</label><br>
+                <input type="text" id="cardNumber" name="cardNumber">
+            </div> -->
 
-        <input type="submit" value="Register">
-    </form>
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn-register">
+            </div>
+        </form>
+    </div>
 </body>
 </html>

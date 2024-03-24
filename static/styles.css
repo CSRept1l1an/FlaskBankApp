@@ -1,0 +1,145 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 400px;
+    width: 90%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+form {
+    margin-top: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="password"],
+input[type="text"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #008CBA;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #005f7f;
+}
+
+.registration-form {
+    margin-top: 20px;
+}
+
+.registration-form label {
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.success-message {
+    color: green;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.btn-register {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .registration-form {
+        margin-top: 10px;
+    }
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.action {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.btn-login {
+    margin-top: 20px;
+}
+
+.message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: #008CBA;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
