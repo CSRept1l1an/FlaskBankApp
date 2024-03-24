@@ -38,4 +38,3 @@ def withdraw(conn, cursor):
                 return redirect(url_for('dashboard', username=username))
 
     return redirect(url_for('index'))
-

@@ -1,14 +1,17 @@
+import os
 import sqlite3
 
 from flask import (Flask,
                    render_template,
                    request,
                    redirect,
+                   session,
                    url_for)
 
 from functions import deposit, withdraw
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
 
 def get_dbcon():
@@ -29,6 +32,7 @@ def index():
 
 @app.route('/logout')
 def logout():
+    session.pop("username", None)
     return redirect(url_for('index'))
 
 
@@ -46,10 +50,14 @@ def login():
         close_dbcon(conn)
 
         if user:
+            user = request.form['username']
+            session['username'] = user
             return redirect(url_for('dashboard', username=username))
-        else:
-            return render_template('login.html', message='Invalid username or password')
-    return render_template('login.html')
+    else:
+        if "username" in session:
+            return redirect(url_for('dashboard', username=session['username']))
+        return render_template('login.html')
+  #return render_template('login.html')
 
 
 # Register page function
@@ -89,16 +97,19 @@ def withdraw_route():
 
 @app.route('/dashboard/<username>')
 def dashboard(username):
-    conn, cursor = get_dbcon()
+    if "username" in session:
+        conn, cursor = get_dbcon()
 
-    cursor.execute('SELECT balance FROM users WHERE name=?', (username,))
-    result = cursor.fetchone()
+        cursor.execute('SELECT balance FROM users WHERE name=?', (username,))
+        result = cursor.fetchone()
 
-    close_dbcon(conn)
+        close_dbcon(conn)
 
-    balance = result[0] if result else 0
+        balance = result[0] if result else 0
 
-    return render_template('dashboard.html', username=username, balance=balance)
+        return render_template('dashboard.html', username=username, balance=balance)
+    else:
+        return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
