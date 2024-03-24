@@ -46,18 +46,21 @@ def login():
 
         cursor.execute('SELECT * FROM users WHERE name=? AND password=?', (username, password))
         user = cursor.fetchone()
-
+        print(user)
         close_dbcon(conn)
 
         if user:
             user = request.form['username']
             session['username'] = user
+            session['password'] = password
             return redirect(url_for('dashboard', username=username))
     else:
         if "username" in session:
-            return redirect(url_for('dashboard', username=session['username']))
+            return redirect(url_for('dashboard', username=session['username'], password=session['password']))
         return render_template('login.html')
-  #return render_template('login.html')
+
+
+# return render_template('login.html')
 
 
 # Register page function
@@ -98,16 +101,19 @@ def withdraw_route():
 @app.route('/dashboard/<username>')
 def dashboard(username):
     if "username" in session:
-        conn, cursor = get_dbcon()
+        if session['username'] == username:
+            conn, cursor = get_dbcon()
 
-        cursor.execute('SELECT balance FROM users WHERE name=?', (username,))
-        result = cursor.fetchone()
+            cursor.execute('SELECT balance FROM users WHERE name=?', (username,))
+            result = cursor.fetchone()
 
-        close_dbcon(conn)
+            close_dbcon(conn)
 
-        balance = result[0] if result else 0
+            balance = result[0] if result else 0
 
-        return render_template('dashboard.html', username=username, balance=balance)
+            return render_template('dashboard.html', username=username, balance=balance)
+        else:
+            return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
 
