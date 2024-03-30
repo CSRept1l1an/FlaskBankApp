@@ -8,7 +8,7 @@ from flask import (Flask,
                    session,
                    url_for)
 
-from functions import deposit, withdraw
+from functions import deposit, withdraw, transfer
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -94,6 +94,16 @@ def withdraw_route():
     conn = sqlite3.connect('bank.sqlite')
     cursor = conn.cursor()
     result = withdraw(conn, cursor)
+    conn.close()
+    return result
+
+
+@app.route('/transfer', methods=['POST'])
+def transaction_route():
+    conn = sqlite3.connect('bank.sqlite')
+    cursor = conn.cursor()
+    result = transfer(conn, cursor)
+    conn.commit()
     conn.close()
     return result
 
