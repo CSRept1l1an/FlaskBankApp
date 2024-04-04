@@ -1,5 +1,5 @@
 import sqlite3
-
+import random
 from flask import request, redirect, url_for
 
 
@@ -74,3 +74,9 @@ def transfer(conn, cursor):
             return "Missing fields or invalid amount", 400
     else:
         return "Invalid method", 405
+
+
+def cardnum():
+    """Generates a random 6-digit "card number" string."""
+    digits = [str(x) for x in random.sample(range(0, 10), 6)]
+    return "".join(digits)
