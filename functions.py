@@ -80,3 +80,5 @@ def cardnum():
     """Generates a random 6-digit "card number" string."""
     digits = [str(x) for x in random.sample(range(0, 10), 6)]
     return "".join(digits)
+
+cardnum = cardnum()
