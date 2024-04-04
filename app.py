@@ -60,9 +60,6 @@ def login():
         return render_template('login.html')
 
 
-# return render_template('login.html')
-
-
 # Register page function
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -77,7 +74,9 @@ def register():
         conn.commit()
         close_dbcon(conn)
 
-    return render_template('register.html')
+        return redirect(url_for('dashboard', username=username,password=password ))
+    else:
+        return render_template('register.html')
 
 
 @app.route('/deposit', methods=['POST'])
