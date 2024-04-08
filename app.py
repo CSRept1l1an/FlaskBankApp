@@ -74,7 +74,7 @@ def register():
         conn.commit()
         close_dbcon(conn)
 
-        return redirect(url_for('dashboard', username=username,password=password ))
+        return redirect(url_for('dashboard', username=username, password=password))
     else:
         return render_template('register.html')
 
