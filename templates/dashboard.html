@@ -10,7 +10,6 @@
             const forms = document.querySelectorAll(`#${formId}, #depositForm, #withdrawForm, #transferForm`);
             forms.forEach(form => form.style.display = formId === form.id ? 'block' : 'none');
         }
-
     </script>
 </head>
 <body>
@@ -38,7 +37,8 @@
 
         <h2>Transfer Money</h2>
         <button onclick="showForm('transferForm')">Transfer</button>
-        <form id="transferForm" action="/transfer" method="post" style="display: none;">
+        <form id="transferForm" action="/transfer" method="post" style="
+        display: none;">
             <input type="hidden" name="username" value="{{ username }}">
             <label for="transferForm">Destination:</label>
             <input type="text" id="transferForm" name="destuser">
